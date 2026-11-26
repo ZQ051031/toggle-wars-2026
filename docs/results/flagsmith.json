@@ -1,0 +1,83 @@
+{
+  "experiment": {
+    "id": 1,
+    "name": "Packlight checklist CTA",
+    "environment": "Packlight Experiment",
+    "status": "running"
+  },
+  "metric": {
+    "id": 1,
+    "name": "Checklist opened",
+    "event": "checklist_opened"
+  },
+  "winner": "specific",
+  "nativeResults": {
+    "as_of": "2026-11-26T02:34:56.081847Z",
+    "last_error_at": null,
+    "refresh_requested_at": "2026-11-26T02:34:55.834080Z",
+    "payload": {
+      "metrics": [
+        {
+          "variants": {
+            "control": {
+              "n": 877,
+              "sum": 213,
+              "sum_squares": 213
+            },
+            "specific": {
+              "n": 923,
+              "sum": 348,
+              "sum_squares": 348
+            }
+          },
+          "inference": {
+            "specific": {
+              "lift": 0.5523781911403416,
+              "ci_low": 0.32981574352442156,
+              "ci_high": 0.7749406387562616,
+              "chance_to_win": 0.9999994260893361
+            }
+          },
+          "metric_id": 1,
+          "conversions_timeseries": {
+            "points": [
+              {
+                "bucket": "2026-11-26T02:00:00+00:00",
+                "converted_identities": {
+                  "control": 213,
+                  "specific": 348
+                }
+              }
+            ],
+            "granularity": "hour"
+          }
+        }
+      ],
+      "srm_p_value": null,
+      "exposures_timeseries": {
+        "points": [
+          {
+            "bucket": "2026-11-26T02:00:00+00:00",
+            "new_identities": {
+              "control": 877,
+              "specific": 923
+            }
+          }
+        ],
+        "granularity": "hour"
+      }
+    },
+    "is_final": false
+  },
+  "rollout": {
+    "status": "completed",
+    "decision": "variant",
+    "completedAt": "2026-11-26T02:35:42.478530Z",
+    "verification": {
+      "flag": "packlight_checklist_cta",
+      "expectedValue": "specific",
+      "freshIdentitiesChecked": 20,
+      "returningIdentitiesChecked": 2
+    }
+  }
+}

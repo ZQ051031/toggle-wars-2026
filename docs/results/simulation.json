@@ -1,0 +1,17 @@
+{
+  "traffic": "synthetic",
+  "seed": "packlight-toggle-wars-v1",
+  "visitors": 1800,
+  "arms": {
+    "generic": {
+      "assumedClickProbability": 0.24,
+      "visits": 877,
+      "clicks": 213
+    },
+    "specific": {
+      "assumedClickProbability": 0.37,
+      "visits": 923,
+      "clicks": 348
+    }
+  }
+}

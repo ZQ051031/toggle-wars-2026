@@ -1,0 +1,39 @@
+1
+00:00:00,000 --> 00:00:09,000
+PACKLIGHT  |  A reusable packing checklist
+Track 01: Does naming the checklist help visitors take the first step?
+
+2
+00:00:09,000 --> 00:00:17,000
+A: “Get started”  →  B: “Open my packing checklist”
+Hypothesis: naming the checklist lifts first-visit opens by at least 15%.
+
+3
+00:00:17,000 --> 00:00:26,000
+The CTA opens a working checklist with locally saved progress.
+Flagsmith records checklist_opened against the same anonymous identity.
+
+4
+00:00:26,000 --> 00:00:36,000
+One enabled multivariate Flagsmith flag: packlight_checklist_cta
+100% enrollment, 50/50 allocation, one occurrence metric.
+
+5
+00:00:36,000 --> 00:00:48,000
+1,800 synthetic visits through the real app routes.
+The simulator assumed 24% control clicks and 37% treatment clicks.
+
+6
+00:00:48,000 --> 00:01:00,000
+Specific: 348/923 (37.70%)  |  Control: 213/877 (24.29%)
+Native Flagsmith result: +55.24% relative lift, >99% chance to win.
+
+7
+00:01:00,000 --> 00:01:10,000
+Completed in Flagsmith: rolled out “specific” on the same flag.
+SDK verification: 20 fresh and 2 returning identities got the winner.
+
+8
+00:01:10,000 --> 00:01:18,000
+A fresh visit now gets “Open my packing checklist.” No redeploy.
+Synthetic result only. Find the evidence and tests in the public repo.

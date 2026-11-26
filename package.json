@@ -1,0 +1,17 @@
+{
+  "name": "packlight",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22 <23" },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "experiment:setup": "node scripts/setup.js",
+    "experiment:simulate": "node scripts/simulate.js",
+    "experiment:results": "node scripts/results.js"
+  },
+  "dependencies": {
+    "@flagsmith/nodejs": "9.5.0"
+  }
+}

@@ -1,0 +1,54 @@
+x-flagsmith: &flagsmith
+  image: docker.flagsmith.com/flagsmith/flagsmith@sha256:48905c664152d8ae2c843ec9cee72ff197e7caff6e91b959bb851a235915ea35
+  environment:
+    DATABASE_URL: postgresql://postgres:packlight-local-only@postgres:5432/flagsmith
+    USE_POSTGRES_FOR_ANALYTICS: 'true'
+    ENVIRONMENT: production
+    DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1
+    FLAGSMITH_DOMAIN: localhost:${FLAGSMITH_PORT:-8000}
+    DJANGO_SECRET_KEY: packlight-local-development-not-for-production
+    WAREHOUSE_CREDENTIALS_SECRET: packlight-local-development-not-for-production
+    EXPERIMENTATION_ENABLED: 'true'
+    TASK_RUN_METHOD: TASK_PROCESSOR
+  depends_on:
+    postgres:
+      condition: service_healthy
+
+services:
+  postgres:
+    image: postgres:15.5-alpine
+    environment:
+      POSTGRES_DB: flagsmith
+      POSTGRES_PASSWORD: packlight-local-only
+    volumes:
+      - flagsmith-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d flagsmith']
+      interval: 2s
+      timeout: 3s
+      retries: 20
+
+  migrate:
+    <<: *flagsmith
+    command: migrate
+    healthcheck:
+      disable: true
+
+  flagsmith:
+    <<: *flagsmith
+    command: serve
+    ports:
+      - '127.0.0.1:${FLAGSMITH_PORT:-8000}:8000'
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  processor:
+    <<: *flagsmith
+    command: run-task-processor
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+volumes:
+  flagsmith-data:

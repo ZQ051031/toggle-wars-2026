@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My packing checklist · Packlight</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/checklist.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="nav">
+      <a class="wordmark" href="/"><span class="brand-mark" aria-hidden="true">✳</span> Packlight</a>
+      <span class="edition">TRAVEL TOOLS / 01</span>
+    </header>
+    <main class="list-page">
+      <p class="eyebrow"><span class="dot"></span> THE GO BAG</p>
+      <h1>My packing checklist.</h1>
+      <p class="subtitle">Check off what you’ve packed. Your progress stays in this browser.</p>
+      <div class="list-progress"><p id="progress" aria-live="polite">0 of 9 packed</p><button type="button" id="reset">Reset checklist</button></div>
+      <div id="packing" class="packing">
+        <fieldset><legend>01 / Essentials</legend>
+          <label><input type="checkbox" value="documents"> ID, passport and tickets</label>
+          <label><input type="checkbox" value="wallet"> Wallet and travel cards</label>
+          <label><input type="checkbox" value="medication"> Personal medication</label>
+        </fieldset>
+        <fieldset><legend>02 / Wear</legend>
+          <label><input type="checkbox" value="clothes"> Clothes for your itinerary</label>
+          <label><input type="checkbox" value="layers"> Weather layer</label>
+          <label><input type="checkbox" value="shoes"> Comfortable shoes</label>
+        </fieldset>
+        <fieldset><legend>03 / Carry</legend>
+          <label><input type="checkbox" value="charger"> Phone charger</label>
+          <label><input type="checkbox" value="toiletries"> Toiletries</label>
+          <label><input type="checkbox" value="bottle"> Reusable water bottle</label>
+        </fieldset>
+      </div>
+      <a class="back" href="/">← Back to Packlight</a>
+    </main>
+    <footer class="footer"><span>THE USEFUL THINGS CLUB</span><span>MADE FOR THE WAY OUT.</span></footer>
+  </div>
+</body>
+</html>
